@@ -21,9 +21,15 @@ dataLoadMode: LOAD_WITH_CHUNK
 # and **read threads should be greater than write threads**.
 # Note: More threads ≠ better performance. Too many can degrade performance. Allocate appropriately.
 
+<<<<<<< HEAD
 # Number of read threads
 readExecutorThread: 15
 # Number of write threads
+=======
+# 读取线程数
+readExecutorThread: 10
+# 写入线程数
+>>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
 writeExecutorThread: 5
 #########################################################################
 
@@ -65,8 +71,13 @@ mysql:
   password: ""
   # Use SSL encrypted connection
   useSSL: false
+<<<<<<< HEAD
   # Maximum connection pool size
   maxConnection: 10
+=======
+  # 最大连接数
+  maxConnection: 15
+>>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
 #########################################################################
 
 #########################################################################
@@ -86,6 +97,11 @@ postgresql:
   password: ""
   # Use SSL encrypted connection
   useSSL: false
+<<<<<<< HEAD
   # Maximum connection pool size
   maxConnection: 10
+=======
+  # 最大连接数
+  maxConnection: 15
+>>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
 #########################################################################

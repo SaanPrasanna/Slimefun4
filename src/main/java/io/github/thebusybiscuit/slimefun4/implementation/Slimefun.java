@@ -26,6 +26,7 @@ import io.github.thebusybiscuit.slimefun4.core.services.BackupService;
 import io.github.thebusybiscuit.slimefun4.core.services.BlockDataService;
 import io.github.thebusybiscuit.slimefun4.core.services.CustomItemDataService;
 import io.github.thebusybiscuit.slimefun4.core.services.CustomTextureService;
+import io.github.thebusybiscuit.slimefun4.core.services.ItemStackService;
 import io.github.thebusybiscuit.slimefun4.core.services.LocalizationService;
 import io.github.thebusybiscuit.slimefun4.core.services.MetricsService;
 import io.github.thebusybiscuit.slimefun4.core.services.MinecraftRecipeService;
@@ -194,6 +195,7 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
     private final SoundService soundService = new SoundService(this);
     private final ThreadService threadService = new ThreadService(this);
     private final AnalyticsService analyticsService = new AnalyticsService(this);
+    private final ItemStackService itemStackService = new ItemStackService();
 
     // Some other things we need
     private final IntegrationsManager integrations = new IntegrationsManager(this);
@@ -323,12 +325,21 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
                 || BlockStorageMigrator.getInstance().hasOldData()) {
             Slimefun.logger().warning("====================================================");
             Slimefun.logger().warning("\n");
+<<<<<<< HEAD
             Slimefun.logger().log(Level.WARNING, "!!! Detected old player data using file storage !!!");
             Slimefun.logger().warning("Please use /sf migrate confirm to migrate after server loads!");
             Slimefun.logger().warning("If you don't migrate, you will lose data from previous versions!!!");
             Slimefun.logger().warning("\n");
             Slimefun.logger().warning("For MySQL database users, please stop server and modify two config files");
             Slimefun.logger().warning("block-storage.yml and profile-storage.yml");
+=======
+            Slimefun.logger().log(Level.WARNING, "!!! 检测到使用文件储存的旧玩家数据 !!!");
+            Slimefun.logger().warning("请在服务器加载完成后, 使用 /sf migrate confirm 进行迁移!");
+            Slimefun.logger().warning("如果不迁移, 旧版本的数据将会失效!!!");
+            Slimefun.logger().warning("\n");
+            Slimefun.logger().warning("需要使用数据库的用户, 请关服后在以下配置文件中配置数据库:");
+            Slimefun.logger().warning("block-storage.yml 和 profile-storage.yml");
+>>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
             Slimefun.logger().warning("\n");
             Slimefun.logger().warning("====================================================");
         }
@@ -901,6 +912,11 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
     public static @Nonnull BlockDataService getBlockDataService() {
         validateInstance();
         return instance.blockDataService;
+    }
+
+    public static @Nonnull ItemStackService getItemStackService() {
+        validateInstance();
+        return instance.itemStackService;
     }
 
     /**

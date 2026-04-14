@@ -1,12 +1,13 @@
 package io.github.thebusybiscuit.slimefun4.implementation.items.blocks;
 
 import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
-import io.github.bakedlibs.dough.inventory.InvUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.virtual.VirtualItemHandler.InventoryContext;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.multiblocks.MultiBlockMachine;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.VanillaInventoryDropHandler;
 import io.papermc.lib.PaperLib;
 import java.util.Optional;
@@ -51,7 +52,7 @@ public class OutputChest extends SlimefunItem {
 
             // Check if the target block is a Chest
             if (potentialOutput.getType() == Material.CHEST) {
-                SlimefunItem slimefunItem = StorageCacheUtils.getSfItem(potentialOutput.getLocation());
+                SlimefunItem slimefunItem = StorageCacheUtils.getSlimefunItem(potentialOutput.getLocation());
 
                 // Fixes #3012 - Check if the OutputChest is not disabled here.
                 if (slimefunItem instanceof OutputChest && !slimefunItem.isDisabledIn(b.getWorld())) {
@@ -63,7 +64,7 @@ public class OutputChest extends SlimefunItem {
                         Inventory inv = chest.getInventory();
 
                         // Check if the Item fits into that inventory.
-                        if (InvUtils.fits(inv, item)) {
+                        if (Slimefun.getItemStackService().fits(inv, item, InventoryContext.OUTPUT_CHEST)) {
                             return Optional.of(inv);
                         }
                     }

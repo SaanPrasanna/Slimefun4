@@ -460,7 +460,7 @@ public class SlimefunProfiler {
 
     public String getThreadPoolStatus() {
         StringBuilder sb = new StringBuilder();
-    sb.append("Thread pool state [ Running | Completed | Total Tasks | Queue Size ]\n");
+        sb.append("Thread pool state [ Running | Completed | Total Tasks | Queue Size ]\n");
 
         for (SlimefunPoolExecutor executor : threadPools) {
             sb.append(executor.getName())

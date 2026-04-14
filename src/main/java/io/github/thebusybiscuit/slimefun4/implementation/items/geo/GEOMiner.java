@@ -328,25 +328,13 @@ public class GEOMiner extends SlimefunItem
             }
             return;
         }
-<<<<<<< HEAD
-
-        Slimefun.getDatabaseManager()
-                .getBlockDataController()
-                .getChunkDataAsync(b.getChunk(), new IAsyncReadCallback<>() {
-                    @Override
-                    public void onResult(SlimefunChunkData result) {
-                        if (result.getAllData().isEmpty()) {
-                            updateHologram(b, "&4GEO-Scan required!");
-                        } else {
-                            start(b, inv);
-=======
         // fix issue 1147 : concurrent geo mining leads to duplication in geo resources
         SlimefunChunkData chunkData =
                 Slimefun.getDatabaseManager().getBlockDataController().getChunkDataFromCache(b.getLocation());
         if (chunkData != null && chunkData.isDataLoaded()) {
             // the data is fully loaded
             if (chunkData.getAllData().isEmpty()) {
-                updateHologram(b, "&4需要先进行地形扫描!");
+                updateHologram(b, "&4GEO-Scan required!");
             } else {
                 start(b, inv);
             }
@@ -357,8 +345,7 @@ public class GEOMiner extends SlimefunItem
                     .getChunkDataAsync(b.getChunk(), new IAsyncReadCallback<>() {
                         @Override
                         public void onResult(SlimefunChunkData result) {
-                            updateHologram(b, "&4区块数据加载中...");
->>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
+                            updateHologram(b, "&4Chunk data loading...");
                         }
                     });
         }

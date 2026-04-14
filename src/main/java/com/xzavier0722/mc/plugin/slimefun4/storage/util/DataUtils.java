@@ -38,18 +38,15 @@ public class DataUtils {
             if (!Slimefun.getConfigManager().isBypassItemLengthCheck()
                     && Slimefun.getDatabaseManager().getBlockDataStorageType() == StorageType.MYSQL
                     && itemStr.length() > 65535) {
-<<<<<<< HEAD
-        throw new IllegalArgumentException("Detected an oversized item. Please contact the plugin developer responsible for that item: " + StringUtil.itemStackToString(itemStack)
-=======
-
-                throw new IllegalArgumentException("检测到过大物品, 请联系物品对应插件开发者解决: " + StringUtil.itemStackToString(itemStack)
->>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
-                        + ", size = " + itemStr.length());
+                throw new IllegalArgumentException(
+                        "Detected an oversized item. Please contact the plugin developer responsible for that item: "
+                                + StringUtil.itemStackToString(itemStack) + ", size = " + itemStr.length());
             }
 
             return itemStr;
         } catch (Throwable e) {
-            Slimefun.logger().log(Level.SEVERE, "序列化物品时出现错误, 将存储空值", e);
+            Slimefun.logger()
+                    .log(Level.SEVERE, "An error occurred while serializing an item, storing null value instead.", e);
             return "";
         }
     }
@@ -75,16 +72,16 @@ public class DataUtils {
             Debug.log(TestCase.BACKPACK, "Deserialized itemstack: " + result);
 
             if (result.getType().isAir()) {
-<<<<<<< HEAD
-                Slimefun.logger().log(Level.WARNING, "Failed to deserialize item from the database! The corresponding item cannot be displayed.");
-=======
-                Slimefun.logger().log(Level.SEVERE, "反序列化数据库中的物品失败! 对应物品无法显示.");
->>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
+                Slimefun.logger()
+                        .log(
+                                Level.WARNING,
+                                "Failed to deserialize item from the database! The corresponding item cannot be displayed.");
             }
 
             return result;
         } catch (Exception ex) {
-            throw new RuntimeException("反序列化物品时出现错误, 对应物品无法显示", ex);
+            throw new RuntimeException(
+                    "An error occurred while deserializing an item, the item cannot be displayed", ex);
         }
     }
 

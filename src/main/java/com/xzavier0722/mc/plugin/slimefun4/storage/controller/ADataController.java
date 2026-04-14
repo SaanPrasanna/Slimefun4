@@ -74,15 +74,11 @@ public abstract class ADataController {
     }
 
     /**
-<<<<<<< HEAD
      * Initializes this {@link ADataController}.
-=======
-     * 初始化 {@link ADataController}
      *
-     * @param dataAdapter   The data source adapter
-     * @param maxReadThread Maximum number of read threads
+     * @param dataAdapter    The data source adapter
+     * @param maxReadThread  Maximum number of read threads
      * @param maxWriteThread Maximum number of write threads
->>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
      */
     @OverridingMethodsMustInvokeSuper
     public void init(IDataSourceAdapter<?> dataAdapter, int maxReadThread, int maxWriteThread) {
@@ -147,14 +143,18 @@ public abstract class ADataController {
 
             while (pendingTask > 0) {
                 var doneTaskPercent = String.format("%.1f", (totalTask - pendingTask) / totalTask * 100);
-                logger.log(Level.INFO, "Saving data, please wait... Remaining tasks: {0} ({1}%)", new Object[] {pendingTask, doneTaskPercent});
+                logger.log(Level.INFO, "Saving data, please wait... Remaining tasks: {0} ({1}%)", new Object[] {
+                    pendingTask, doneTaskPercent
+                });
                 TimeUnit.SECONDS.sleep(1);
                 var currentTask = scheduledWriteTasks.size();
 
                 if (pendingTask == currentTask) {
                     if (timer.peek() / 1000 > 10) {
-            Slimefun.logger()
-                .log(Level.WARNING, "Detected a long-running save task. Please provide the following thread stack dump to the developers for investigation:");
+                        Slimefun.logger()
+                                .log(
+                                        Level.WARNING,
+                                        "Detected a long-running save task. Please provide the following thread stack dump to the developers for investigation:");
                         Slimefun.logger()
                                 .log(Level.WARNING, Slimefun.getProfiler().snapshotThreads());
                     }

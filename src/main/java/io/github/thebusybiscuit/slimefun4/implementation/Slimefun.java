@@ -325,21 +325,12 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
                 || BlockStorageMigrator.getInstance().hasOldData()) {
             Slimefun.logger().warning("====================================================");
             Slimefun.logger().warning("\n");
-<<<<<<< HEAD
             Slimefun.logger().log(Level.WARNING, "!!! Detected old player data using file storage !!!");
             Slimefun.logger().warning("Please use /sf migrate confirm to migrate after server loads!");
             Slimefun.logger().warning("If you don't migrate, you will lose data from previous versions!!!");
             Slimefun.logger().warning("\n");
             Slimefun.logger().warning("For MySQL database users, please stop server and modify two config files");
             Slimefun.logger().warning("block-storage.yml and profile-storage.yml");
-=======
-            Slimefun.logger().log(Level.WARNING, "!!! 检测到使用文件储存的旧玩家数据 !!!");
-            Slimefun.logger().warning("请在服务器加载完成后, 使用 /sf migrate confirm 进行迁移!");
-            Slimefun.logger().warning("如果不迁移, 旧版本的数据将会失效!!!");
-            Slimefun.logger().warning("\n");
-            Slimefun.logger().warning("需要使用数据库的用户, 请关服后在以下配置文件中配置数据库:");
-            Slimefun.logger().warning("block-storage.yml 和 profile-storage.yml");
->>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
             Slimefun.logger().warning("\n");
             Slimefun.logger().warning("====================================================");
         }
@@ -357,7 +348,10 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
 
         // Make sure that the network size is a valid input
         if (networkSize < 1) {
-            logger.log(Level.WARNING, "'networks.max-size' is configured incorrectly! It must be greater than 1, but you set it to: {0}", networkSize);
+            logger.log(
+                    Level.WARNING,
+                    "'networks.max-size' is configured incorrectly! It must be greater than 1, but you set it to: {0}",
+                    networkSize);
             networkSize = 1;
         }
 
@@ -628,11 +622,11 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
             }
         } catch (Exception | LinkageError x) {
             getLogger()
-            .log(
-                Level.SEVERE,
-                x,
-                () -> "error: Could not recognize server Minecraft version, Slimefun v"
-                    + getDescription().getVersion());
+                    .log(
+                            Level.SEVERE,
+                            x,
+                            () -> "error: Could not recognize server Minecraft version, Slimefun v"
+                                    + getDescription().getVersion());
 
             // We assume "unsupported" if something went wrong.
             return true;

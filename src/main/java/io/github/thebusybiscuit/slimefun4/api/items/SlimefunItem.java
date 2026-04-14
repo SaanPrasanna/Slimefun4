@@ -914,8 +914,8 @@ public class SlimefunItem implements Placeable {
      * Note that you only need to provide the page name itself,
      * the URL to our wiki is prepended automatically.
      *
-    * Do not return the official Chinese wiki address directly.
-    * Downstream projects should call {@link SlimefunItem#addWikiPage(String)} instead.
+     * Do not return the official Chinese wiki address directly.
+     * Downstream projects should call {@link SlimefunItem#addWikiPage(String)} instead.
      *
      * @param page
      *            The associated wiki page
@@ -938,7 +938,8 @@ public class SlimefunItem implements Placeable {
 
         if (addon == null) {
             Slimefun.logger()
-                    .warning("The item \"" + getId() + "\" is not registered yet. Add wiki pages only after registration.");
+                    .warning("The item \"" + getId()
+                            + "\" is not registered yet. Add wiki pages only after registration.");
             return;
         }
         if (addon.getWikiURL() != null) {

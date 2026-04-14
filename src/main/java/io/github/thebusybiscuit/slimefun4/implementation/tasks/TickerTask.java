@@ -260,15 +260,18 @@ public class TickerTask implements Runnable {
             Slimefun.logger().log(Level.SEVERE, "X: {0} Y: {1} Z: {2} ({3})", new Object[] {
                 l.getBlockX(), l.getBlockY(), l.getBlockZ(), item.getId()
             });
-<<<<<<< HEAD
-            Slimefun.logger().log(Level.SEVERE, "Multiple errors occurred in the past 4 ticks, the machine at this block has been disabled.");
-            Slimefun.logger().log(Level.SEVERE, "Please check the error details in the /plugins/Slimefun/error-reports/ folder.");
-            Slimefun.logger().log(Level.SEVERE, "If you want to report this error, send the above error report file to others, not a screenshot of this window.");
-=======
-            Slimefun.logger().log(Level.SEVERE, "在过去的 4 个 Tick 中发生多次错误，该方块对应的机器已被停用。");
-            Slimefun.logger().log(Level.SEVERE, "请在 /plugins/Slimefun/error-reports/ 文件夹中查看错误详情。");
-            Slimefun.logger().log(Level.SEVERE, "如果你要向他人求助，请向他人发送上述错误报告文件,而不是发送这个窗口的截图");
->>>>>>> a9ad6692da260d58e2232881a289171aa49147eb
+            Slimefun.logger()
+                    .log(
+                            Level.SEVERE,
+                            "Multiple errors occurred in the past 4 ticks, the machine at this block has been disabled.");
+            Slimefun.logger()
+                    .log(
+                            Level.SEVERE,
+                            "Please check the error details in the /plugins/Slimefun/error-reports/ folder.");
+            Slimefun.logger()
+                    .log(
+                            Level.SEVERE,
+                            "If you want to report this error, send the above error report file to others, not a screenshot of this window.");
             Slimefun.logger().log(Level.SEVERE, " ");
             bugs.remove(position);
 

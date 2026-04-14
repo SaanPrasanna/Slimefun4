@@ -1,3 +1,10 @@
+sf-cn:
+  timings:
+    started: '&aPerformance profiler has started.'
+    running: '&aPerformance profiler is running. Stop it to view the report.'
+    stopped: '&aPerformance profiler has stopped. View the report here: &f{0}'
+    warning: '&cAn error occurred while generating the performance report! Check the console for details.'
+
 commands:
   help: Displays this help screen
   cheat: Allows you to cheat Items
@@ -8,6 +15,20 @@ commands:
   search: Searches your Guide for the given term
   open_guide: Opens Slimefun's guide without using the book
   stats: Shows some Stats about a Player
+  id: Get the Slimefun ID of the item in your hand
+  cleardata:
+    description: Clear world data
+    success: '&aCleared &c {1} &a data for &c {0}'
+    block: block
+    oil: oil
+    worldNotFound: '&cWorld not found'
+    confirm: '&e Type /sf cleardata <World> <Type> confirm to confirm this operation. &cThis is IRREVERSIBLE!'
+  banitem:
+    description: Disable a Slimefun item
+    success: '&aDisabled successfully'
+  unbanitem:
+    description: Enable a Slimefun item
+    success: '&aEnabled successfully'
 
   research:
     description: Unlock/Reset researches for a player
@@ -43,6 +64,18 @@ commands:
     description: "Reload config file"
     reload-success: "&aReloaded config file successfully."
     reload-failed: "&cReload config failed, you may need restart server to apply change, see console for more info."
+
+  migrate:
+    description: "Migrate old data"
+    confirm: "&cAre you sure you want to migrate data? Type /sf migrate confirm to start.\nDo not let players interact with Slimefun machines while migrating!"
+    started: "&aMigrating data..."
+    success: "&aMigrated data (%migrate_type%) to database successfully."
+    failed: "&cAn error occurred during migration, please check the console."
+    already-migrated: "&aNo data to migrate."
+    in-progress: "&aMigration is in progress..."
+
+  blockdata:
+    description: 'Manipulate Slimefun block data'
 
 placeholderapi:
   profile-loading: 'Loading...'
@@ -159,6 +192,7 @@ actionbar:
   radiation: '&6Radiation Exposure Level: &c%level%&7/&e100'
 
 messages:
+  android-no-permission: "&cYour Android has stopped working because it entered a region where you do not have permission."
   not-researched: '&4You do not have enough knowledge to understand this. &cYou will need to unlock &f"%item%&f"'
   not-enough-xp: '&4You do not have enough XP to unlock this'
   unlocked: '&bYou have unlocked &7"%research%"'
@@ -462,6 +496,7 @@ android:
       cannot-add-yourself: '&cYou cannot add yourself!'
       add-success: '&aAdded trusted player %player% successfully.'
       delete-success: '&aDeleted trusted player %player% successfully.'
+      reach-limit: '&cTrusted player limit reached (10). Please remove an existing player first.'
 
 languages:
   default: 'Server-Default'
